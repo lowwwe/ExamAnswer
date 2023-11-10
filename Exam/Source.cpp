@@ -56,18 +56,17 @@ void calSchoolTour(int t_children, int t_lunches)
 	float const LUNCH = 9.00f; // price of one lunch
 	float const TICKET = 18.50f; // price per student
 
-	if (t_children == 1)
+	float const FIRST_PREMUIM = TICKET * 0.15F;
+	float const SECOND_PREMIUM = TICKET * 0.05f;
+	float const CHILD_PRICE = TICKET * THIRD_CHILD_DISCOUINT;
+	
+	ticketCost = CHILD_PRICE * t_children + FIRST_PREMUIM;
+	if (t_children  > 1)
 	{
-		ticketCost = TICKET ;
+		ticketCost = ticketCost + SECOND_PREMIUM;
 	}
-	if (t_children == 2)
-	{
-		ticketCost = TICKET + TICKET * SECOND_CHILD_DISCOUNT;
-	}
-	if (t_children > 2)
-	{
-		ticketCost = TICKET + TICKET * SECOND_CHILD_DISCOUNT + (t_children - 2) * TICKET * THIRD_CHILD_DISCOUINT;
-	}
+
+	
 	lunchCost = t_lunches * LUNCH;
 	totalCost = ticketCost + lunchCost;
 
